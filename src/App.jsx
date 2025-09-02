@@ -5,6 +5,7 @@ import './App.css'
 import { Home } from './pages/Home'
 import { Route, Routes } from 'react-router-dom'
 import { Archive } from './pages/Archive'
+import { Bin } from './pages/Bin'
 
 function App() {
 
@@ -12,8 +13,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Home />}></Route>
       <Route path='/archive' element={<Archive />}></Route>
-      {/* <Route path='/' element={<Home />}></Route>
-      <Route path='/' element={<Home />}></Route> */}
+      <Route path='/bin' element={<Bin />}></Route>
+      {/* <Route path='/' element={<Home />}></Route> */}
     </Routes>
   )
 }

@@ -6,6 +6,7 @@ import { NotesCard } from "../components/NotesCard";
 
 export const Archive = () => {
   const { notes,archivedNotes } = useSelector((state) => state.notes);
+  
   return (
     <Fragment>
       <Navbar />
@@ -17,6 +18,8 @@ export const Archive = () => {
             )}
             {archivedNotes?.length > 0 &&
               archivedNotes.map(({ id, title, text, isPinned,isArchived }) => (
+                !(notes.find(note => note.id === id)?.isDeleted)&&
+
                 <NotesCard
                   key={id}
                   className="border-2 border-gray-300 rounded-md p-4 m-4 w-120"
@@ -25,6 +28,7 @@ export const Archive = () => {
                   text={text}
                   isPinned={isPinned}
                   isArchived={isArchived}
+                  isDeleted={notes.find(note=>note.id === id).isDeleted}
               
                 />
               ))}

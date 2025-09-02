@@ -62,8 +62,8 @@ export const Home = () => {
             <div className="flex flex-wrap rounded-md mt-2">
               {pinnedNotes.length > 0 && <h1 className="text-xl font-semibold">Pinned Notes:</h1>}
               {pinnedNotes?.length > 0 && 
-                pinnedNotes.map(({ id, title, text,isPinned,isArchived }) => (
-                  !isArchived&&
+                pinnedNotes.map(({ id, title, text,isPinned,isArchived,isDeleted}) => (
+                  !isDeleted && !isArchived&&
                   <NotesCard
                     key={id}
                     className="border-2 border-gray-300 rounded-md p-4 m-4 w-120"
@@ -73,6 +73,7 @@ export const Home = () => {
                     isPinned={isPinned}
                     isArchived={isArchived}
                     archivedNotes={archivedNotes}
+                    isDeleted={isDeleted}
                   />
                 ))}
             </div>
@@ -80,8 +81,8 @@ export const Home = () => {
             <div className="flex flex-wrap rounded-md mt-2">
               {unpinnedNotes?.length > 0&& <h1 className="text-xl font-semibold">Other Notes:</h1>}
               {unpinnedNotes?.length > 0 &&
-                unpinnedNotes.map(({ id, title, text,isPinned ,isArchived}) => (
-                  !isArchived&&
+                unpinnedNotes.map(({ id, title, text,isPinned ,isArchived,isDeleted}) => (
+                  !isDeleted&&!isArchived&&
                     <NotesCard
                     key={id}
                     className="border-2 border-gray-300 rounded-md p-4 m-4 w-120"
@@ -91,6 +92,7 @@ export const Home = () => {
                     isPinned={isPinned}
                     isArchived={isArchived}
                     archivedNotes={archivedNotes}
+                    isDeleted={isDeleted}
                   />
                   
                   
